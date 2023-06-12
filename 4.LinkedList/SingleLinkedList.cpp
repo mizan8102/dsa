@@ -21,9 +21,10 @@ int main(){
    a->next=b;
    b->next=c;
    c->next=d;
-   while (head !=NULL){ 
-    cout << head->val << endl;
-    head=head->next;
+   Node *temp=head;
+   while (temp !=NULL){ 
+    cout << temp->val << endl;
+    temp=temp->next;
    
    }
    return 0;
