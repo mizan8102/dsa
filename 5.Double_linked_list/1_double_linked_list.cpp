@@ -41,6 +41,30 @@ void insert_at_head(Node *&head, int val){
     head->prev=newNode;
     head=newNode;
 }
+
+int size(Node *head){
+    Node *tmp=head;
+    int c=0;
+    while (tmp !=NULL)
+    {
+        c++;
+        tmp=tmp->next;
+    }
+    return c;
+}
+
+void insert_at_any_position(Node *head, int pos, int val){
+    Node *newNode=new Node(val);
+    Node *tmp = head;
+    for (int i = 1; i <= pos-1; i++)
+    {
+        tmp= tmp->next;
+    }
+    newNode->next=tmp->next;
+    newNode->prev=tmp;
+    tmp->next=newNode;
+}
+
 int main(){
    
    Node *head=new Node(10);
@@ -60,8 +84,20 @@ int main(){
    print_linked_list(head);
    cout << endl;
    print_reverse_list(c);
-    insert_at_head(head,43);
-    cout << endl << "after insert " << endl;
-     print_linked_list(head);
+   insert_at_head(head,43);
+   cout << endl << "after insert " << endl;
+    print_linked_list(head);
+
+    cout << endl << endl << "enter index number for position =" << endl;
+    int index;
+    cin >> index;
+    if(index>size(head)){
+        cout << "Invalid position" << endl;
+    }else{
+         insert_at_any_position(head, index, 700);
+    }
+     cout << endl << "after insert at "<< index <<" position add" << endl;
+    print_linked_list(head);
+    
    return 0;
 }
