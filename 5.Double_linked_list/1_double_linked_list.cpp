@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 #include<iostream>
 using namespace std;
 class Node{
@@ -65,6 +64,17 @@ void insert_at_any_position(Node *head, int pos, int val){
     tmp->next=newNode;
 }
 
+void insert_at_tail(Node *head,int val){
+    Node *tmp=head;
+    Node *newNode=new Node(val);
+    while (tmp->next !=NULL)
+    {
+        tmp=tmp->next;
+    }
+    newNode->prev=tmp;
+    tmp->next=newNode;
+}
+
 int main(){
    
    Node *head=new Node(10);
@@ -96,7 +106,8 @@ int main(){
     }else{
          insert_at_any_position(head, index, 700);
     }
-     cout << endl << "after insert at "<< index <<" position add" << endl;
+    insert_at_tail(head,4302);
+    cout << endl << "after insert at "<< index <<" position add" << endl;
     print_linked_list(head);
     
    return 0;
