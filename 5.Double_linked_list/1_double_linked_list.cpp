@@ -23,6 +23,12 @@ void print_linked_list(Node *head){
 }
 
 void print_reverse_list(Node *tail){
+    Node *tmp=tail;
+    while (tmp !=NULL)
+    {
+        cout << tmp->val << " ";
+        tmp=tmp->prev;
+    }
     
 }
 int main(){
@@ -40,7 +46,10 @@ int main(){
    b->prev=a;
    
    c->prev=b;
+
    print_linked_list(head);
+   cout << endl;
+   print_reverse_list(c);
 
    return 0;
 }
