@@ -31,6 +31,16 @@ void print_reverse_list(Node *tail){
     }
     
 }
+void insert_at_head(Node *&head, int val){
+    Node *newNode= new Node(val);
+    if(head == NULL){
+        head=newNode;
+        return;
+    }
+    newNode->next=head; 
+    head->prev=newNode;
+    head=newNode;
+}
 int main(){
    
    Node *head=new Node(10);
@@ -50,6 +60,8 @@ int main(){
    print_linked_list(head);
    cout << endl;
    print_reverse_list(c);
-
+    insert_at_head(head,43);
+    cout << endl << "after insert " << endl;
+     print_linked_list(head);
    return 0;
 }
