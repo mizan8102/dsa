@@ -75,6 +75,19 @@ void insert_at_tail(Node *head,int val){
     tmp->next=newNode;
 }
 
+// delete specific node 
+void delete_at_position(Node *head,int position){
+    Node *tmp=head;
+    Node *deleteNode;
+    for (int i = 1; i <= position-1; i++)
+    {
+        tmp=tmp->next;
+    }
+    deleteNode=tmp->next;
+    tmp->next=tmp->next->next;
+    tmp->next->next->prev=tmp;
+    delete deleteNode;
+}
 int main(){
    
    Node *head=new Node(10);
@@ -108,7 +121,13 @@ int main(){
     }
     insert_at_tail(head,4302);
     cout << endl << "after insert at "<< index <<" position add" << endl;
+
     print_linked_list(head);
     
+    int delete_index;
+    cout << endl << "Input delete index no:" ;
+    cin >> delete_index;
+    delete_at_position(head, delete_index);
+    print_linked_list(head);
    return 0;
 }
