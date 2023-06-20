@@ -2,7 +2,11 @@
     "files.associations": {
         "*.embeddedhtml": "html",
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "cph.general.onceMaintainerMessage": false
