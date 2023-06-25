@@ -14,7 +14,7 @@ int main(){
         st.push(a);
    }
 
-cout << "output " << endl << endl;
+    cout << "output " << endl << endl;
    while (!st.empty())
    {
         cout << st.top() << endl;
