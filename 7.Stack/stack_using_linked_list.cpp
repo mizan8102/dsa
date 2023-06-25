@@ -33,6 +33,7 @@ class myStack{
         }
 
         void pop(){
+            sz--;
            Node *deleteNOde= tail;
            tail=tail->prev;
            if(tail == NULL){
