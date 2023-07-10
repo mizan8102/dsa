@@ -5,8 +5,9 @@ using namespace std;
 
 int main(){
    stack<int> st;
-   int n;
-   cin >> n;
+   queue<int>qu;
+   int n,m;
+   cin >> n >> m;
    for (int i = 0; i < n; i++)
    {
         int a;
@@ -14,13 +15,30 @@ int main(){
         st.push(a);
    }
 
-    cout << "output " << endl << endl;
-   while (!st.empty())
+    for (int i = 0; i < m; i++)
    {
-        cout << st.top() << endl;
-        st.pop();
+        int a;
+        cin >> a;
+        qu.push(a);
    }
+
+  bool flag=true;
+    if(n != m){
+        flag=false;
+    }else{
+            while (!qu.empty())
+    {
+        if( qu.front() != st.top()){
+            flag=false;
+            break;
+        }
+        st.pop();
+        qu.pop();
+    }
+    }
    
-   
+
+    flag ? cout << "YES" << endl : cout <<  "NO" << endl ;
+    
    return 0;
 }

@@ -9,7 +9,8 @@
         "xutility": "cpp",
         "memory": "cpp",
         "list": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "stack": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "cph.general.onceMaintainerMessage": false
