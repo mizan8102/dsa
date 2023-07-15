@@ -15,36 +15,26 @@ class Node{
         }
 };
 
-void pre_order(Node* root){
-
-    if(root == NULL){
-        return;
-    }
-   
-    pre_order(root->left);
-    
-    pre_order(root->right); 
-    cout << root->val << " ";
-}
-
 void level_order(Node *root){
     queue<Node*> q;
+    stack<Node*>st;
     q.push(root);
     while (!q.empty())
     {
-        // niye ano 
         Node *f=q.front();
         q.pop();
 
-
-        // jabotiyo ja kaj 
-        cout << f->val << " ";
-
-        // onnoo gulo k niye ano 
-        if(f->left) q.push(f->left);
+        st.push(f);
+        
         if(f->right) q.push(f->right);
+        if(f->left) q.push(f->left);
     }
-    
+
+   while (!st.empty()) {
+        Node* node = st.top();
+        st.pop();
+        cout << node->val << " ";
+    }
 }
 
 Node* input_level_order(){
@@ -88,8 +78,7 @@ Node* input_level_order(){
 int main(){
    
     Node *root= input_level_order();
-    // level_order(root);
-    pre_order(root);
+    level_order(root);
 
    return 0;
 }

@@ -15,38 +15,22 @@ class Node{
         }
 };
 
-void pre_order(Node* root){
 
-    if(root == NULL){
-        return;
-    }
-   
-    pre_order(root->left);
-    
-    pre_order(root->right); 
-    cout << root->val << " ";
+int maxHeight(Node *root)
+{
+    if (root == NULL)
+        return 0;
+    int l = maxHeight(root->left);
+    int r = maxHeight(root->right);
+    return max(l, r) + 1;
 }
 
-void level_order(Node *root){
-    queue<Node*> q;
-    q.push(root);
-    while (!q.empty())
-    {
-        // niye ano 
-        Node *f=q.front();
-        q.pop();
-
-
-        // jabotiyo ja kaj 
-        cout << f->val << " ";
-
-        // onnoo gulo k niye ano 
-        if(f->left) q.push(f->left);
-        if(f->right) q.push(f->right);
-    }
-    
+int count(Node* root){
+    if(root == NULL) return 0;
+    int l=count(root->left);
+    int r=count(root->right);
+    return l+r+1;
 }
-
 Node* input_level_order(){
     int val; 
     cin >> val;
@@ -60,11 +44,9 @@ Node* input_level_order(){
     
     while (!q.empty())
     {
-        // ber kore niye aslam 
         Node *f =q.front();
         q.pop();
 
-        // onno kaj 
         int l,r;
         cin >> l >> r;
         Node* left;
@@ -77,8 +59,6 @@ Node* input_level_order(){
         f->left = left;
         f->right = right;
 
-        // children niye asa
-
         if(f->left) q.push(f->left);
         if(f->right) q.push(f->right);
     }
@@ -88,8 +68,14 @@ Node* input_level_order(){
 int main(){
    
     Node *root= input_level_order();
-    // level_order(root);
-    pre_order(root);
+    int maxH=maxHeight(root);
+    int c=count(root);
+    int totalNode= pow(2,maxH)-1;
+    if(totalNode == c){
+        cout << "YES" << endl;
+    }else{
+        cout << "NO" << endl;
+    }
 
    return 0;
 }

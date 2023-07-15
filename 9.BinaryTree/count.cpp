@@ -29,6 +29,18 @@ int count(Node* root){
     int r=count(root->right);
     return l+r+1;
 }
+
+int countLeafNode(Node* root){
+    if(root == NULL) return 0;
+    if(root->left==NULL && root->right==NULL){
+        return 1;
+    }else{
+         int l=countLeafNode(root->left);
+    int r=countLeafNode(root->right);
+    return l+r;
+    }
+   
+}
 int main(){
    
    Node *root=new Node(10);
@@ -56,6 +68,7 @@ int main(){
     h->left=i;
 
     d->right=f;
-   cout << " count value =" << count(root) << endl;
+//    cout << " count value =" << count(root) << endl;
+   cout << " count value =" << countLeafNode(root) << endl;
    return 0;
 }
