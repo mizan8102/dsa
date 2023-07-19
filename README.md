@@ -1,4 +1,4 @@
-# List of DSA- 
+# List of DS- 
 1. Pattern
 2. Number
 3. Array
