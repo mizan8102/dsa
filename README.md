@@ -1,5 +1,6 @@
 # List of DS- 
 <li>
+   ```
    <ul>
       1. Pattern
    </ul>
@@ -32,6 +33,7 @@
    </ul>
 
    <ul>10. Priority Queue (Max and Min Heap) </ul>
+   ```
 </li>
 
 
